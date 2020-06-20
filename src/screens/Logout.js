@@ -3,15 +3,13 @@ import { withRouter } from 'react-router-dom'
 import {
     Container
 } from '../components'
-import FirebaseContext from '../context/FirebaseContext'
+import firebase from 'firebase'
 import { message } from 'antd'
 
 const Logout = ({ history }) => {
-    const Firebase = useContext(FirebaseContext)
-
     const logout = useCallback(async () => {
         try{
-            const resp = await Firebase.auth().signOut()
+            const resp = await firebase.auth().signOut()
             console.log({ resp })
             history.push("/auth/login")
         }
@@ -19,7 +17,7 @@ const Logout = ({ history }) => {
             console.log(err)
             message.error(err.message)
         }
-    }, [history, Firebase])
+    }, [history])
 
     useEffect(() => {
         logout()

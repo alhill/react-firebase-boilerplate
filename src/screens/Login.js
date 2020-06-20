@@ -4,11 +4,11 @@ import {
     Container,
     Field
 } from '../components'
-import { FirebaseContext, UserContext } from '../context'
+import { UserContext } from '../context'
+import firebase from 'firebase'
 import { Input, Button, message } from 'antd'
 
 const Login = ({ history }) => {
-    const firebase = useContext(FirebaseContext)
     const authUser = useContext(UserContext)
     const reset = { email: "", password: "" }
     const [loading, setLoading] = useState(false)

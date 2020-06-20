@@ -5,13 +5,12 @@ import {
     Field
 } from '../components'
 import { 
-    FirebaseContext,
     UserContext 
 } from '../context'
 import { Input, Button, message } from 'antd'
+import firebase from 'firebase'
 
 const Register = ({ history }) => {
-    const firebase = useContext(FirebaseContext)
     const authUser = useContext(UserContext)
     const reset = { email: "", password: "", password2: "" }
     const [credentials, setCredentials] = useState(reset)
